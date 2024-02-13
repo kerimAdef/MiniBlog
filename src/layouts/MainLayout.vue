@@ -1,116 +1,53 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
-      <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
+      <q-toolbar class="justify-between">
+        <q-btn flat round dense icon="menu" />
+        <q-toolbar-title> MAD blog </q-toolbar-title>
 
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
+        <!-- Bouton Inscription -->
+        <q-btn color="secondary" glossy label="Inscription" class="q-mr-md" @click="goToInscriptionPage" />
 
-        <div>Quasar v{{ $q.version }}</div>
+        <!-- Bouton Connexion -->
+        <q-btn color="secondary" glossy label="Connexion" @click="goToConnexionPage" />
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-    >
-      <q-list>
-        <q-item-label
-          header
-        >
-          Essential Links
-        </q-item-label>
-
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
-    </q-drawer>
-
-    <q-page-container>
-      <router-view />
-    </q-page-container>
+    <!-- Votre contenu ici -->
   </q-layout>
+
+  <div class="q-pa-md">
+    <div class="q-gutter-sm">
+      <!-- Réduisez l'espace en utilisant des classes de marge de Quasar -->
+      <q-img src="image/logo.png" />
+      <q-img src="image/logo.png" />
+      <q-btn push color="secondary" glossy label="Voir les autres pics" @click="refresh" class="q-mb-md" />
+    </div>
+  </div>
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue'
-import EssentialLink from 'components/EssentialLink.vue'
-
-const linksList = [
-  {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
-  }
-]
+import { defineComponent } from "vue";
+import { useRouter } from "vue-router";
 
 export default defineComponent({
-  name: 'MainLayout',
+  name: "MainLayout",
 
-  components: {
-    EssentialLink
-  },
+  setup() {
+    const router = useRouter();
 
-  setup () {
-    const leftDrawerOpen = ref(false)
+    const goToInscriptionPage = () => {
+      router.push("/inscription");
+    };
+
+    const goToConnexionPage = () => {
+      router.push("/connexion");
+    };
 
     return {
-      essentialLinks: linksList,
-      leftDrawerOpen,
-      toggleLeftDrawer () {
-        leftDrawerOpen.value = !leftDrawerOpen.value
-      }
-    }
-  }
-})
+      goToInscriptionPage,
+      goToConnexionPage,
+    };
+  },
+});
 </script>

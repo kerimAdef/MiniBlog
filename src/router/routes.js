@@ -1,5 +1,17 @@
-
+import { createRouter, createWebHistory } from 'vue-router'
+import Inscription from '../pages/InscriptionPage.vue'
+import Connexion from '../pages/ConnexionPage.vue'
 const routes = [
+  {
+    path: '/inscription',
+    name: 'Inscription',
+    component: Inscription
+  },
+  {
+    path: '/connexion',
+    name: 'Connexion',
+    component: Connexion
+  },
   {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
@@ -15,5 +27,9 @@ const routes = [
     component: () => import('pages/ErrorNotFound.vue')
   }
 ]
+const router = createRouter({
+  history: createWebHistory(),
+  routes
+})
 
 export default routes
