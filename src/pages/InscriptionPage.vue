@@ -1,4 +1,7 @@
 <template>
+<q-layout view="lHh Lpr lFf">
+<q-page-container>
+  <q-page>
   <div class="q-pa-md">
     <div class="q-gutter-md">
       <!-- Vos champs de formulaire ici -->
@@ -10,6 +13,9 @@
       <q-btn color="secondary" glossy label="S'inscrire" @click="submitForm" />
     </div>
   </div>
+  </q-page>
+  </q-page-container>
+</q-layout>
 </template>
 
 <script>
