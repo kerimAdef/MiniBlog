@@ -1,5 +1,5 @@
 <template>
-  <h1>coucou</h1>
+  <q-layout>
     <q-page>
       <q-list bordered separator>
         <q-item
@@ -28,39 +28,40 @@
         </q-item>
       </q-list>
     </q-page>
-  </template>
+  </q-layout>
+</template>
 
-  <script>
-  export default {
-    data() {
-      return {
-        posts: [
-          {
-            id: 1,
-            title: 'Titre de l\'article 1',
-            author: 'Auteur 1',
-            authorAvatarUrl: 'url_de_l_avatar_1',
-            date: '17/02/2024',
-            content: 'Contenu de l\'article 1'
-          },
-          {
-            id: 2,
-            title: 'Titre de l\'article 2',
-            author: 'Auteur 2',
-            authorAvatarUrl: 'url_de_l_avatar_2',
-            date: '17/02/2024',
-            content: 'Contenu de l\'article 2'
-          },
-          // Ajoutez d'autres articles ici...
-        ]
-      }
-    },
-    methods: {
-      openPost(post) {
-        // Méthode pour ouvrir un article individuel
-        console.log('Ouvrir l\'article:', post.title);
-        // Vous pouvez implémenter ici la logique pour ouvrir un article complet
-      }
+<script>
+export default {
+  data() {
+    return {
+      posts: [
+        {
+          id: 1,
+          title: 'Titre de l\'article 1',
+          author: 'Auteur 1',
+          authorAvatarUrl: '/image/logo.png',
+          date: '17/02/2024',
+          content: 'Contenu de l\'article 1'
+        },
+        {
+          id: 2,
+          title: 'Titre de l\'article 2',
+          author: 'Auteur 2',
+          authorAvatarUrl: '/image/logo.png',
+          date: '17/02/2024',
+          content: 'Contenu de l\'article 2'
+        },
+        // Ajoutez d'autres articles ici...
+      ]
+    }
+  },
+  methods: {
+    openPost(post) {
+      // Méthode pour ouvrir un article individuel
+      console.log('Ouvrir l\'article:', post.title);
+      // Vous pouvez implémenter ici la logique pour ouvrir un article complet
     }
   }
-  </script>
+}
+</script>
