@@ -16,12 +16,10 @@
     <!-- Votre contenu ici -->
   </q-layout>
 
+
   <div class="q-pa-md">
     <div class="q-gutter-sm">
-      <!-- Réduisez l'espace en utilisant des classes de marge de Quasar -->
-      <q-img src="image/logo.png" />
-      <q-img src="image/logo.png" />
-      <q-btn push color="secondary" glossy label="Voir les autres pics" @click="refresh" class="q-mb-md" />
+      <q-btn push color="secondary" glossy label="Voir les autres pics" @click="goToAcceuilPage"  class="q-mb-md" />
     </div>
   </div>
 </template>
@@ -43,10 +41,14 @@ export default defineComponent({
     const goToConnexionPage = () => {
       router.push("/connexion");
     };
+    const goToAcceuilPage= () => {
+      router.push("/acceuil");
+    };
 
     return {
       goToInscriptionPage,
       goToConnexionPage,
+      goToAcceuilPage,
     };
   },
 });

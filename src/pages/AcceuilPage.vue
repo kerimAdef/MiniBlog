@@ -1,4 +1,5 @@
 <template>
+  <h1>coucou</h1>
     <q-page>
       <q-list bordered separator>
         <q-item
@@ -12,7 +13,7 @@
               <img :src="post.authorAvatarUrl" alt="Avatar">
             </q-avatar>
           </q-item-section>
-  
+
           <q-item-section>
             <q-item-label>
               {{ post.title }}
@@ -28,7 +29,7 @@
       </q-list>
     </q-page>
   </template>
-  
+
   <script>
   export default {
     data() {
@@ -63,4 +64,3 @@
     }
   }
   </script>
-  
