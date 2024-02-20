@@ -4,7 +4,7 @@
   <q-page>
   <div class="q-pa-md">
     <div class="q-gutter-md">
-      <!-- Vos champs de formulaire ici -->
+
       <q-input filled label="Nom" v-model="nom" />
       <q-input filled label="Prénom" v-model="prenom" />
       <q-input filled type="number" label="Âge" v-model="age" />

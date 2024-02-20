@@ -64,7 +64,7 @@ export default defineComponent({
 
     const openPost = (post) => {
       console.log('Ouvrir l\'article:', post.title);
-      // Vous pouvez implémenter ici la logique pour ouvrir un article complet
+      
     };
 
     const posts = [

@@ -21,6 +21,9 @@
 </template>
 
 <script>
+// Importer les fonctions Firebase nécessaires
+import { getFirestore, collection, addDoc } from "firebase/firestore";
+
 export default {
   props: {
     posts: {
@@ -44,32 +47,38 @@ export default {
       // Code pour gérer le téléchargement de l'image
       console.log('Image téléchargée :', file);
     },
-    submitArticle() {
-      // Code pour soumettre l'article
-      console.log('Article soumis :', this.article);
-      this.publishArticle();
+    async submitArticle() {
+      // Ajouter l'article à Firestore
+      await this.addArticleToFirestore();
+      // Réinitialiser les champs du formulaire après l'ajout
+      this.resetForm();
     },
-    publishArticle() {
-      const newArticle = {
-        id: this.posts.length + 1, // ID unique pour le nouvel article
-        title: this.article.title,
-        author: this.article.author,
-        authorAvatarUrl: '/path/to/author/avatar',
-        date: this.article.date,
-        content: this.article.content
-      };
+    async addArticleToFirestore() {
+      try {
+        // Récupérer une référence à la collection "articles" dans Firestore
+        const db = getFirestore();
+        const articlesCollection = collection(db, "articles");
 
-      // Créez une copie des articles existants
-      const updatedPosts = [...this.posts];
+        // Ajouter le nouvel article à la collection Firestore
+        await addDoc(articlesCollection, {
+          title: this.article.title,
+          content: this.article.content,
+          author: this.article.author,
+          date: this.article.date,
+        });
 
-      // Ajoutez le nouvel article à la copie
-      updatedPosts.push(newArticle);
-
-      // Émettez un événement pour notifier la page d'accueil du nouvel article
-      this.$emit('new-article', newArticle);
-
-      // Utilisez $emit pour mettre à jour les articles dans le composant parent
-      this.$emit('update:posts', updatedPosts);
+        console.log("Article ajouté à Firestore avec succès !");
+      } catch (error) {
+        console.error("Erreur lors de l'ajout de l'article à Firestore :", error);
+      }
+    },
+    resetForm() {
+      // Réinitialiser les champs du formulaire après l'ajout
+      this.article.title = '';
+      this.article.content = '';
+      this.article.image = null;
+      this.article.author = '';
+      this.article.date = '';
     }
   }
 };
