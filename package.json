@@ -24,7 +24,7 @@
   "devDependencies": {
     "@quasar/app-vite": "^1.4.3",
     "autoprefixer": "^10.4.2",
-    "dotenv": "^16.4.4",
+    "dotenv": "^16.4.5",
     "eslint": "^8.11.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-vue": "^9.0.0",
