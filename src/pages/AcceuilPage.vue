@@ -132,10 +132,7 @@ export default defineComponent({
 </script>
 
 <style>
-.q-page {
-  max-width: 800px;
-  margin: auto;
-}
+
 
 .q-item {
   transition: transform 0.3s ease-in-out;
