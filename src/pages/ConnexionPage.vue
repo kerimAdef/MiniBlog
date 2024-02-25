@@ -1,13 +1,12 @@
 <template>
-  <div class="q-pa-md d-flex justify-center align-center" style="height: 100vh;">
-    <div class="form-content q-gutter-md">
-     
-      <q-input filled label="Adresse e-mail" v-model="email" />
-      <q-input filled type="password" label="Mot de passe" v-model="password" />
+  <div>
+    <!-- Bouton de connexion -->
+    <q-btn color="primary" label="Se connecter" @click="openLoginModal" />
 
-      <q-btn color="secondary" glossy label="S'inscrire" @click="submitForm" />
-      <a href="#" class="q-my-md q-mb-md text-xs">Mot de passe oublié ?</a>
-    </div>
+    <!-- Modal de connexion -->
+    <q-dialog v-model="loginModalVisible">
+      <!-- Contenu du modal (formulaire de connexion) -->
+    </q-dialog>
   </div>
 </template>
 
@@ -15,14 +14,13 @@
 export default {
   data() {
     return {
-      email: "",
-      password: "",
+      loginModalVisible: false, // Pour contrôler la visibilité du modal
     };
   },
   methods: {
-    submitForm() {
-      // Logique pour soumettre le formulaire
-      console.log("Formulaire de connexion soumis !");
+    openLoginModal() {
+      // Ouvrir le modal de connexion
+      this.loginModalVisible = true;
     },
   },
 };
