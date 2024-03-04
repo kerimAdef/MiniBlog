@@ -31,7 +31,7 @@
                 :src="post.imageUrl"
                 alt="Article"
                 width="100%"
-                height="200px"
+                height="fullscreen"
               />
               <q-item-label caption class="text-grey-8">
                 {{ post.author }} - {{ post.date }}
