@@ -1,5 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf" class="bg-grey-1">
+    <!-- En-tête -->
     <q-header elevated class="bg-primary text-white">
       <q-toolbar class="justify-between">
         <q-btn flat round dense icon="menu" />
@@ -20,22 +21,29 @@
             class="q-mb-md rounded-borders"
             @click="openPost(post)"
           >
-            <q-item-section class="q-pa-md">
-              <q-item-label class="text-h6 text-weight-bold">
-                {{ post.title }}
-              </q-item-label>
-              <q-item-label class="text-subtitle1 text-grey-8 q-mb-md">
-                <div v-html="post.content"></div>
-              </q-item-label>
-              <q-img
-                :src="post.imageUrl"
-                alt="Article"
-                width="100%"
-                height="fullscreen"
-              />
-              <q-item-label caption class="text-grey-8">
-                {{ post.author }} - {{ post.date }}
-              </q-item-label>
+            <q-item-section>
+              <div class="row">
+                <!-- Contenu à gauche -->
+                <div class="col-8 col-md-6">
+                  <q-item-label class="text-h6 text-weight-bold">
+                    {{ post.title }}
+                  </q-item-label>
+                  <q-item-label class="text-subtitle1 text-grey-8 q-mb-md">
+                    <div v-html="post.content"></div>
+                  </q-item-label>
+                  <q-item-label caption class="text-grey-8">
+                    {{ post.author }} - {{ post.date }}
+                  </q-item-label>
+                </div>
+                <!-- Image à droite -->
+                <div class="col-4 col-md-6">
+                  <q-img
+                    :src="post.imageUrl"
+                    alt="Article"
+                    style="height: 300px; max-width: 500px"
+                  />
+                </div>
+              </div>
             </q-item-section>
           </q-item>
         </q-list>
@@ -58,10 +66,9 @@
 <script>
 import { defineComponent } from "vue";
 import { useRouter } from "vue-router";
-import ProfilePage from "../pages/ProfilePage.vue";
+
 export default defineComponent({
   name: "HomePage",
-  name: "ProfilePage",
 
   setup() {
     const router = useRouter();
@@ -69,13 +76,13 @@ export default defineComponent({
     const goToHomePage = () => {
       router.push("/");
     };
+
     const goToProfilePage = () => {
       router.push("/profile");
     };
 
     const openPost = (post) => {
-      console.log('Ouvrir l\'article:', post.title);
-
+      console.log("Ouvrir l'article:", post.title);
     };
 
     const posts = [
@@ -83,40 +90,32 @@ export default defineComponent({
         id: 1,
         title: "Article 1",
         author: "Adef",
-        authorAvatarUrl: "/image/article.jpeg",
         date: "17/02/2024",
-        content:
-          "<p>Aliquam lectus eros, convallis eget turpis sed, interdum imperdiet lacus. Pellentesque venenatis metus ac orci imperdiet, nec pellentesque velit tempus. Donec congue augue quis enim feugiat, in consequat justo eleifend. Sed aliquam, mi eget varius tempus, urna dolor feugiat quam, ut tempus massa eros et velit. Sed consequat, leo eget bibendum volutpat, tellus nisi volutpat dolor, eu volutpat dui velit eget dolor. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.</p><p>Curabitur vitae eros. Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam in felis sit amet ligula pharetra condimentum. In rutrum accumsan ultricies. Mauris at libero.</p>",
+        content: "<p>Sed consequat tellus et tortor. Ut tempor laoreet quam. Nullam id wisi a libero tristique semper. Nullam nisl massa, rutrum ut, egestas semper, mollis id, leo. Nulla ac massa eu risus blandit mattis. Mauris ut nunc. In hac habitasse platea dictumst. Aliquam eget tortor. Quisque dapibus pede in erat. Nunc enim. In dui nulla, commodo at, consectetuer nec, malesuada nec, elit. Aliquam ornare tellus eu urna. Sed nec metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.In hac habitasse platea dictumst. Suspendisse potenti. Nulla pretium sem sit amet nisl. Nulla facilisi. Sed aliquam, turpis sed hendrerit gravida, nunc metus aliquam urna, eget pharetra nibh urna nec lectus. Duis in nisl a nisl commodo facilisis. Nunc placerat risus sed leo. Duis pellentesque porta libero. Praesent et enim. Aenean ullamcorper, ante sit amet fermentum mollis, ligula metus laoreet magna, accumsan accumsan nibh wisi at wisi. Nam tincidunt tempor neque. Maecenas dolor. Donec interdum nisl. Aliquam quam libero, interdum quis, volutpat sed, semper ut, eros. Pellentesque sodales auctor quam. Nullam suscipit massa nec elit. Nullam vulputate.</p>",
         imageUrl: "public/image/artisan.jpg",
       },
       {
         id: 2,
         title: "Article 2",
         author: "Mouhamed",
-        authorAvatarUrl: "/image/logo.png",
         date: "17/02/2024",
-        content:
-          "<p>Curabitur vitae eros. Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam in felis sit amet ligula pharetra condimentum. In rutrum accumsan ultricies. Mauris at libero.</p><p>Curabitur vitae eros. Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam in felis sit amet ligula pharetra condimentum. In rutrum accumsan ultricies. Mauris at libero.</p>",
+        content: "<p>Sed consequat tellus et tortor. Ut tempor laoreet quam. Nullam id wisi a libero tristique semper. Nullam nisl massa, rutrum ut, egestas semper, mollis id, leo. Nulla ac massa eu risus blandit mattis. Mauris ut nunc. In hac habitasse platea dictumst. Aliquam eget tortor. Quisque dapibus pede in erat. Nunc enim. In dui nulla, commodo at, consectetuer nec, malesuada nec, elit. Aliquam ornare tellus eu urna. Sed nec metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.In hac habitasse platea dictumst. Suspendisse potenti. Nulla pretium sem sit amet nisl. Nulla facilisi. Sed aliquam, turpis sed hendrerit gravida, nunc metus aliquam urna, eget pharetra nibh urna nec lectus. Duis in nisl a nisl commodo facilisis. Nunc placerat risus sed leo. Duis pellentesque porta libero. Praesent et enim. Aenean ullamcorper, ante sit amet fermentum mollis, ligula metus laoreet magna, accumsan accumsan nibh wisi at wisi. Nam tincidunt tempor neque. Maecenas dolor. Donec interdum nisl. Aliquam quam libero, interdum quis, volutpat sed, semper ut, eros. Pellentesque sodales auctor quam. Nullam suscipit massa nec elit. Nullam vulputate.</p>",
         imageUrl: "public/image/desert.jpg",
       },
       {
         id: 3,
         title: "Article 3",
         author: "John Doe",
-        authorAvatarUrl: "/image/avatar-3.jpg",
         date: "18/02/2024",
-        content:
-          "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula eros, blandit nec, pharetra faucibus, egestas eget, nibh. Integer in magna. Quisque orci. Sed libero. Fusce ultrices eleifend dignissim. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Donec eget odio pellentesque diam volutpat commodo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p><p>Curabitur vitae eros. Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam in felis sit amet ligula pharetra condimentum. In rutrum accumsan ultricies. Mauris at libero.</p>",
+        content: "<p>Sed consequat tellus et tortor. Ut tempor laoreet quam. Nullam id wisi a libero tristique semper. Nullam nisl massa, rutrum ut, egestas semper, mollis id, leo. Nulla ac massa eu risus blandit mattis. Mauris ut nunc. In hac habitasse platea dictumst. Aliquam eget tortor. Quisque dapibus pede in erat. Nunc enim. In dui nulla, commodo at, consectetuer nec, malesuada nec, elit. Aliquam ornare tellus eu urna. Sed nec metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.In hac habitasse platea dictumst. Suspendisse potenti. Nulla pretium sem sit amet nisl. Nulla facilisi. Sed aliquam, turpis sed hendrerit gravida, nunc metus aliquam urna, eget pharetra nibh urna nec lectus. Duis in nisl a nisl commodo facilisis. Nunc placerat risus sed leo. Duis pellentesque porta libero. Praesent et enim. Aenean ullamcorper, ante sit amet fermentum mollis, ligula metus laoreet magna, accumsan accumsan nibh wisi at wisi. Nam tincidunt tempor neque. Maecenas dolor. Donec interdum nisl. Aliquam quam libero, interdum quis, volutpat sed, semper ut, eros. Pellentesque sodales auctor quam. Nullam suscipit massa nec elit. Nullam vulputate.</p>",
         imageUrl: "public/image/pexels-beyza-yalçın-20181797.jpg",
       },
       {
         id: 4,
         title: "Article 4",
         author: "Jane Doe",
-        authorAvatarUrl: "/image/avatar-4.jpg",
         date: "19/02/2024",
-        content:
-          "<p>Curabitur vitae eros. Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam in felis sit amet ligula pharetra condimentum. In rutrum accumsan ultricies. Mauris at libero.</p><p>Curabitur vitae eros. Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam in felis sit amet ligula pharetra condimentum. In rutrum accumsan ultricies. Mauris at libero.</p>",
+        content: "<p>Sed consequat tellus et tortor. Ut tempor laoreet quam. Nullam id wisi a libero tristique semper. Nullam nisl massa, rutrum ut, egestas semper, mollis id, leo. Nulla ac massa eu risus blandit mattis. Mauris ut nunc. In hac habitasse platea dictumst. Aliquam eget tortor. Quisque dapibus pede in erat. Nunc enim. In dui nulla, commodo at, consectetuer nec, malesuada nec, elit. Aliquam ornare tellus eu urna. Sed nec metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.In hac habitasse platea dictumst. Suspendisse potenti. Nulla pretium sem sit amet nisl. Nulla facilisi. Sed aliquam, turpis sed hendrerit gravida, nunc metus aliquam urna, eget pharetra nibh urna nec lectus. Duis in nisl a nisl commodo facilisis. Nunc placerat risus sed leo. Duis pellentesque porta libero. Praesent et enim. Aenean ullamcorper, ante sit amet fermentum mollis, ligula metus laoreet magna, accumsan accumsan nibh wisi at wisi. Nam tincidunt tempor neque. Maecenas dolor. Donec interdum nisl. Aliquam quam libero, interdum quis, volutpat sed, semper ut, eros. Pellentesque sodales auctor quam. Nullam suscipit massa nec elit. Nullam vulputate.</p>",
         imageUrl: "public/image/pexels-gabriella-ally-16176622.jpg",
       },
     ];
@@ -132,8 +131,6 @@ export default defineComponent({
 </script>
 
 <style>
-
-
 .q-item {
   transition: transform 0.3s ease-in-out;
 }

@@ -1,5 +1,8 @@
 <template>
-  <div class="q-pa-md" style="max-width: 600px; margin: auto;">
+  <q-layout>
+  <q-page-container>
+  <q-page style="background-color:rgb(208, 208, 216);">
+  <div class="q-pa-md" style="max-width: 600px; margin: auto; ">
     <h2 class="text-h6">Bienvenue sur votre profil</h2>
     <q-form @submit="submitArticle">
       <q-input style="margin-bottom: 20px;" filled v-model="article.title" label="Titre de l'article :" required />
@@ -18,6 +21,9 @@
       <q-btn type="submit" label="Publier" color="primary" class="q-mt-md" />
     </q-form>
   </div>
+</q-page>
+</q-page-container>
+</q-layout>
 </template>
 
 <script>

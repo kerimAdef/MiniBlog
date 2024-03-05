@@ -2,7 +2,6 @@
   <q-layout view="lHh Lpr lFf">
     <q-header>
       <q-toolbar class="justify-between">
-        <q-btn flat round dense icon="menu" />
         <q-toolbar-title> MAD blog </q-toolbar-title>
 
         <!-- Bouton Inscription -->
@@ -24,44 +23,64 @@
       </q-toolbar>
     </q-header>
 
-    <!-- Votre contenu ici -->
-    <q-page-container>
-      <q-page class="">
-        <div>
-          <q-carousel arrows animated v-model="slide" height="400px">
-            <q-carousel-slide name="first" img-src="/image/imagefont.jpeg">
+
+    <q-page-container style="padding-bottom:0!important;">
+      <q-page style="background-color:rgb(208, 208, 216);">
+        <div
+          class="q-pa-md"
+          style="
+            background-image: url('/image/imagefont.jpeg');
+            background-size: cover;
+          "
+        >
+        <!-- Home page -->
+          <div
+            class="text-h3 text-center q-pa-lg q-ml-xl q-mr-xl" style="color: cyan">
+              MAD blog - Explorez, Découvrez, Partagez : Bienvenue dans notre
+              Univers !
+
+
+          </div>
+          <p style="color: cyan">
+            Découvrez un univers riche en contenu et en diversité sur notre blog
+            ! Que vous soyez passionné de technologie, amateur de cuisine,
+            adepte de voyages ou curieux de découvrir de nouvelles tendances,
+            notre plateforme vous propose une multitude d'articles captivants.
+            Plongez dans des sujets variés, allant de conseils pratiques à des
+            réflexions profondes, et explorez les thématiques qui vous
+            passionnent.</p>
+        </div>
+
+        <!-- carousel -->
+        <div class="q-pb-xs">
+          <q-carousel arrows animated v-model="slide" height="500px">
+            <q-carousel-slide name="first" img-src="https://cdn.quasar.dev/img/mountains.jpg">
               <div class="absolute-bottom custom-caption">
                 <div
-                  class="text-h3 text-center q-pa-lg q-ml-xl q-mr-xl"
+                  class="absolute-bottom custom-caption"
                   style="color: cyan"
                 >
-                  MAD blog - Explorez, Découvrez, Partagez : Bienvenue dans
-                  notre Univers !
-                </div>
-                <div
-                  class="text-subtitle1 text-center q-pa-xl q-pb-xl"
-                  style="color: cyan"
-                >
-                  Découvrez un univers riche en contenu et en diversité sur
+                <h6>Parcourir nos articles</h6>
+                  <p>Découvrez un univers riche en contenu et en diversité sur
                   notre blog ! Que vous soyez passionné de technologie, amateur
                   de cuisine, adepte de voyages ou curieux de découvrir de
                   nouvelles tendances, notre plateforme vous propose une
-                  multitude d'articles captivants.
-                </div>
-
-                <div class="q-gutter-sm">
-                  <!-- Réduisez l'espace en utilisant des classes de marge de Quasar -->
-                  <q-btn
-                    push
-                    color="secondary"
-                    glossy
-                    label="Voir articles"
-                    @click="goToAcceuilPage"
-                    class="q-mb-md"
-                  />
+                  multitude d'articles captivants.</p>
                 </div>
               </div>
             </q-carousel-slide>
+            <q-carousel-slide
+              name="third"
+              img-src="https://cdn.quasar.dev/img/parallax2.jpg"
+            >
+              <div class="absolute-bottom custom-caption">
+                <div
+                class="absolute-bottom custom-caption"
+                  style="color: cyan"><h6>Famous Bridge</h6></div>
+                <div class="text-subtitle1"> adepte de voyages ou curieux de découvrir de nouvelles</div>
+              </div>
+            </q-carousel-slide>
+
             <q-carousel-slide
               name="second"
               img-src="https://cdn.quasar.dev/img/parallax1.jpg"
@@ -82,66 +101,128 @@
             </q-carousel-slide>
           </q-carousel>
         </div>
+        <section class="q-pa-md">
+          <div class="row q-gutter-md items-center justify-center">
+            <div>
+              <q-img
+                class="col-8 col-md-6"
+                src="image/faq.png"
+                style="height: 300px; width: 300px;"
+              />
+            </div>
+            <span class="col-8 col-md-6 row q-gutter-md items-center justify-center">
+              <p class="text-h1">F.A.Q</p>
+              <p>
+                Sed consequat tellus et tortor. Ut tempor laoreet quam. massa, rutrum ut, egestas semper, mollis id, leo. Nulla ac massa eu risus blandit mattis. Mauris ut nunc. In hac habitasse platea dictumst. Aliquam eget tortor. Quisque dapibus pede in erat. Nunc enim. In dui nulla, commodo at, consectetuer nec, malesuada nec, elit. Aliquam ornare tellus eu urna. Sed nec metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+              </p>
+            </span>
+          </div>
+          <!-- Question 1 -->
+          <q-expansion-item
+
+            class="faq-item q-mt-md"
+            expand-separator
+            icon="question_mark"
+            label="Pourquoi MadBlog"
+          >
+            <q-card>
+              <q-card-section>
+                MAD Blog est une plateforme qui vise à fournir un espace pour partager des connaissances, des expériences et des idées sur une variété de sujets. Que ce soit pour découvrir de nouvelles informations, apprendre des astuces pratiques ou partager vos propres créations, MAD Blog est là pour vous accompagner dans votre parcours en ligne.
+              </q-card-section>
+            </q-card>
+          </q-expansion-item>
+
+          <!-- Question 2 -->
+          <q-expansion-item
+            class="faq-item"
+            expand-separator
+            icon="question_mark"
+            label="Comment puis-je publier un article sur MadBlog ?"
+          >
+            <q-card>
+              <q-card-section>
+                Pour publier un article sur MadBlog, vous devez d'abord créer un compte utilisateur. Une fois connecté, accédez à votre tableau de bord et cliquez sur le bouton "Nouvel Article". Remplissez les champs requis, ajoutez votre contenu et cliquez sur "Publier" pour partager votre article avec la communauté de MadBlog.
+              </q-card-section>
+            </q-card>
+          </q-expansion-item>
+         <!-- Question 3 -->
+         <q-expansion-item
+            class="faq-item"
+            expand-separator
+            icon="question_mark"
+            label="Quels types d'articles puis-je trouver sur MadBlog ?"
+          >
+            <q-card>
+              <q-card-section>
+                MadBlog propose une grande variété d'articles sur différents sujets, y compris la technologie, la cuisine, les voyages, la mode, la santé, l'art, et bien plus encore. Vous trouverez des tutoriels, des critiques, des astuces, des conseils et des réflexions sur des sujets qui vous intéressent.
+              </q-card-section>
+            </q-card>
+          </q-expansion-item>
+
+          <!-- Question 4 -->
+          <q-expansion-item
+            class="faq-item"
+            expand-separator
+            icon="question_mark"
+            label="Comment puis-je contacter l'équipe de MadBlog ?"
+          >
+            <q-card>
+              <q-card-section>
+                Si vous avez des questions, des commentaires ou des préoccupations concernant MadBlog, vous pouvez nous contacter via notre formulaire de contact disponible sur notre site web. Notre équipe se fera un plaisir de répondre à vos messages et de vous aider dans les plus brefs délais.
+              </q-card-section>
+            </q-card>
+          </q-expansion-item>
+        </section>
+        <div class="q-gutter-sm">
+          <q-btn
+            push
+            color="secondary"
+            glossy
+            label="Voir articles"
+            @click="goToAcceuilPage"
+            class="q-mb-xl"
+          />
+        </div>
+        <section class="q-pa-md" style="background-color: rgb(208, 208, 216);">
+          <h2 class="text-h4">Contactez-nous</h2>
+          <q-input filled label="Nom" />
+          <q-input filled label="Email" />
+          <q-input
+        v-model="textareaModel"
+        filled
+        clearable
+        type="textarea"
+        color="red-12"
+        label="Textarea with shadow text"
+        hint="Press TAB to autocomplete suggested value or ESC to cancel suggestion"
+        :shadow-text="textareaShadowText"
+        @keydown="processTextareaFill"
+        @focus="processTextareaFill"
+      />
+          <q-btn color="secondary" label="Envoyer" class="q-mb-xl" />
+        </section>
+
       </q-page>
     </q-page-container>
+    <q-footer class="absolute-bottom q-mt-xl">
+      <div class="row items-center justify-center">
+        <div>
+          <p>© 2024 MAD Blog. Tous droits réservés.</p>
+        </div>
+      </div>
+    </q-footer>
+
+
+
 
     <!-- Modal de connexion -->
     <q-dialog v-model="loginModalVisible">
-      <div class="q-dialog-inner">
-        <div class="q-dialog-title" style="color: antiquewhite">Connexion</div>
-        <div class="q-dialog-content" style="background-color: aliceblue">
-          <!-- Votre formulaire de connexion -->
-          <q-input filled label="Adresse e-mail" v-model="email" />
-          <q-input
-            filled
-            type="password"
-            label="Mot de passe"
-            v-model="password"
-          />
-        </div>
-        <div class="q-dialog-actions">
-          <q-btn
-            color="primary"
-            label="Se connecter"
-            @click="submitLoginForm"
-          />
-          <q-btn color="secondary" label="Fermer" @click="closeLoginModal" />
-        </div>
-      </div>
+      <!-- Contenu du modal de connexion -->
     </q-dialog>
 
     <!-- Modal d'inscription -->
     <q-dialog v-model="inscriptionModalVisible">
-      <div class="q-dialog-inner" style="width: 500px; height: 500px">
-        <div class="q-dialog-title" style="color: antiquewhite">
-          Inscription
-        </div>
-        <div class="q-dialog-content" style="background-color: aliceblue">
-          <!-- Votre formulaire d'inscription -->
-          <q-input filled label="Nom" v-model="nom" />
-          <q-input filled label="Prénom" v-model="prenom" />
-          <q-input filled type="number" label="Âge" v-model="age" />
-          <q-input filled label="Adresse e-mail" v-model="email" />
-          <q-input
-            filled
-            type="password"
-            label="Mot de passe"
-            v-model="password"
-          />
-        </div>
-        <div class="q-dialog-actions">
-          <q-btn
-            color="primary"
-            label="S'inscrire"
-            @click="submitInscriptionForm"
-          />
-          <q-btn
-            color="secondary"
-            label="Fermer"
-            @click="closeInscriptionModal"
-          />
-        </div>
-      </div>
+      <!-- Contenu du modal d'inscription -->
     </q-dialog>
   </q-layout>
 </template>
@@ -151,79 +232,62 @@ import { defineComponent, ref } from "vue";
 import { useRouter } from "vue-router";
 
 export default defineComponent({
-  name: "MainLayout",
+  name: "HomePage",
 
   setup() {
     const router = useRouter();
-    const loginModalVisible = ref(false); // Variable pour contrôler la visibilité du modal
-    const inscriptionModalVisible = ref(false); // Variable pour contrôler la visibilité du modal
-    const email = ref(""); // Variable pour stocker l'e-mail
-    const password = ref(""); // Variable pour stocker le mot de passe
-    const nom = ref(""); // Variable pour stocker le nom
-    const prenom = ref(""); // Variable pour stocker le prénom
-    const age = ref(null); // Variable pour stocker l'âge
-
-    const goToInscriptionPage = () => {
-      router.push("/inscription");
-    };
-
-    const goToConnexionPage = () => {
-      router.push("/connexion");
-    };
-
-    const openLoginModal = () => {
-      loginModalVisible.value = true; // Ouvrir le modal de connexion
-    };
-
-    const closeLoginModal = () => {
-      loginModalVisible.value = false; // Fermer le modal de connexion
-    };
-
-    const openInscriptionModal = () => {
-      inscriptionModalVisible.value = true; // Ouvrir le modal d'inscription
-    };
-
-    const closeInscriptionModal = () => {
-      inscriptionModalVisible.value = false; // Fermer le modal d'inscription
-    };
+    const loginModalVisible = ref(false);
+    const inscriptionModalVisible = ref(false);
+    const slide = ref("first");
 
     const goToAcceuilPage = () => {
       router.push("/acceuil");
     };
 
-    const submitLoginForm = () => {
-      console.log("Formulaire de connexion soumis !");
-      // Vous pouvez ajouter ici la logique pour traiter le formulaire de connexion
-      // et éventuellement fermer le modal une fois le traitement terminé
-      closeLoginModal();
+    // Méthodes pour ouvrir/fermer les modaux de connexion et d'inscription
+    const openLoginModal = () => {
+      loginModalVisible.value = true;
     };
 
-    const submitInscriptionForm = () => {
-      console.log("Formulaire d'inscription soumis !");
-      // Vous pouvez ajouter ici la logique pour traiter le formulaire d'inscription
-      // et éventuellement fermer le modal une fois le traitement terminé
-      closeInscriptionModal();
+    const closeLoginModal = () => {
+      loginModalVisible.value = false;
+    };
+
+    const openInscriptionModal = () => {
+      inscriptionModalVisible.value = true;
+    };
+
+    const closeInscriptionModal = () => {
+      inscriptionModalVisible.value = false;
     };
 
     return {
       goToAcceuilPage,
-      goToInscriptionPage,
-      goToConnexionPage,
       openLoginModal,
       closeLoginModal,
       openInscriptionModal,
       closeInscriptionModal,
       loginModalVisible,
       inscriptionModalVisible,
-      email,
-      password,
-      nom,
-      prenom,
-      age,
-      submitLoginForm,
-      submitInscriptionForm,
-      slide: ref("first"),
+      slide,
     };
   },
 });
 </script>
+
+<style scoped>
+.faq-item {
+  background-color: rgb(118, 118, 211);
+  margin-bottom: 20px; /* Ajoute de l'espace entre chaque élément */
+}
+
+.q-page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.q-page {
+  flex-grow: 1;
+}
+</style>
