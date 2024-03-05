@@ -1,15 +1,5 @@
 <template>
-  <q-layout view="lHh Lpr lFf" class="bg-grey-1">
-    <q-header elevated class="bg-primary text-white">
-      <q-toolbar class="justify-between">
-        <q-btn flat round dense icon="menu" />
-        <q-toolbar-title> MAD blog </q-toolbar-title>
-        <q-btn flat round dense icon="person" @click="goToProfilePage" />
-      </q-toolbar>
-    </q-header>
-
-    <!-- Contenu de la page principale -->
-    <q-page-container>
+  
       <q-page class="q-pa-md">
         <q-list bordered separator>
           <q-item
@@ -40,8 +30,7 @@
           </q-item>
         </q-list>
       </q-page>
-    </q-page-container>
-
+  
     <!-- Bouton pour retourner à l'accueil -->
     <q-page-sticky position="bottom-right" class="q-mb-md q-mr-md">
       <q-btn
@@ -52,7 +41,7 @@
         @click="goToHomePage"
       />
     </q-page-sticky>
-  </q-layout>
+ 
 </template>
 
 <script>
@@ -60,18 +49,18 @@ import { defineComponent } from "vue";
 import { useRouter } from "vue-router";
 import ProfilePage from "../pages/ProfilePage.vue";
 export default defineComponent({
-  name: "HomePage",
-  name: "ProfilePage",
+  // name: "HomePage",
+  // name: "ProfilePage",
 
   setup() {
-    const router = useRouter();
+    // const router = useRouter();
 
-    const goToHomePage = () => {
-      router.push("/");
-    };
-    const goToProfilePage = () => {
-      router.push("/profile");
-    };
+    // const goToHomePage = () => {
+    //   router.push("/");
+    // };
+    // const goToProfilePage = () => {
+    //   router.push("/profile");
+    // };
 
     const openPost = (post) => {
       console.log("Ouvrir l'article:", post.title);

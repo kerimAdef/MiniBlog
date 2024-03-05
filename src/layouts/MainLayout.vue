@@ -49,15 +49,15 @@
                   multitude d'articles captivants.
                 </div>
 
-                <div class="q-gutter-sm">
+                <div class="q-gutter-sm row justify-center">
                   <!-- Réduisez l'espace en utilisant des classes de marge de Quasar -->
                   <q-btn
                     push
                     color="secondary"
                     glossy
                     label="Voir articles"
-                    @click="goToAcceuilPage"
-                    class="q-mb-md"
+                    :to="{ name: 'Accueil' }"
+                    class="q-mb-lg"
                   />
                 </div>
               </div>
@@ -85,7 +85,44 @@
       </q-page>
     </q-page-container>
 
-    <!-- Modal de connexion -->
+
+    <!-- bloc footer  -->
+    <q-footer elevated>
+      <div class="row q-pa-xl justify-center items-center">
+        <div class="col">
+          <q-img
+            src="public/image/logo.png"
+            spinner-color="white"
+            style="height: 125px; max-width: 200px"
+            img-class="my-custom-image"
+            class="rounded-borders"
+          />
+        </div>
+        <div class="col">
+          <b> Coordonnée</b>
+          <div class="col-5 q-pt-lg">
+            18 rue d'anvers
+            <br />
+            60 boulevard francois grosso <br />
+            10 rue arson <br />
+            19 rue messiah
+          </div>
+        </div>
+        <div class="col">
+          <b>Navigation</b>
+          <div class="col-5 q-pt-lg">
+            Acceuil
+            <br />
+            Nos articles <br />
+            Nos engagement <br />
+            A propos <br />
+            Contactez nous
+          </div>
+        </div>
+      </div>
+    </q-footer>
+    <!-- bloc de footer 
+   Modal de connexion -->
     <q-dialog v-model="loginModalVisible">
       <div class="q-dialog-inner">
         <div class="q-dialog-title" style="color: antiquewhite">Connexion</div>
