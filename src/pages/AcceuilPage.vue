@@ -32,7 +32,7 @@
       </q-page>
   
     <!-- Bouton pour retourner à l'accueil -->
-    <!-- <q-page-sticky position="bottom-right" class="q-mb-md q-mr-md">
+    <q-page-sticky position="bottom-right" class="q-mb-md q-mr-md">
       <q-btn
         push
         color="secondary"
@@ -41,7 +41,7 @@
         
       />
     </q-page-sticky>
-  -->
+ 
 </template>
 
 <script>
