@@ -1,10 +1,8 @@
 <template>
   <!-- <q-layout view="lHh Lpr lFf"> -->
-    <q-layout view="hHh Lpr lff" container style="height: 300px" class="shadow-2 rounded-borders">
-
+  <q-layout view="hHh Lpr lff">
     <q-header>
       <q-toolbar class="justify-between">
-        <q-btn flat round dense icon="menu" />
         <q-btn flat @click="drawer = !drawer" round dense icon="menu" />
 
         <q-toolbar-title> MAD blog </q-toolbar-title>
@@ -25,71 +23,66 @@
           label="Connexion"
           @click="openLoginModal"
         />
-      </q-toolbar>
-    </q-header>
 
-    <!-- Votre contenu ici ( toujours faire apparaitre sur le code!!!! important  ) --> 
-    <q-page-container>
-      <router-view />
-    </q-page-container>
+        <q-drawer
+          v-model="drawer"
+          show-if-above
+          :mini="!drawer || miniState"
+          @click.capture="drawerClick"
+          :width="200"
+          :breakpoint="500"
+          bordered
+          :class="$q.dark.isActive ? 'bg-grey-9' : 'bg-grey-3'"
+        >
+          <template v-slot:mini>
+            <q-scroll-area class="fit mini-slot cursor-pointer">
+              <div class="q-py-lg">
+                <div class="column items-start">
+                  <q-icon
+                    name="inbox"
+                    color="blue"
+                    class="mini-icon"
+                    @click="goToPosts"
+                  />
+                </div>
+              </div>
+            </q-scroll-area>
+          </template>
 
+          <q-scroll-area class="fit">
+            <q-list padding>
+              <q-item clickable v-ripple @click="goToPosts">
+                <q-item-section> Articles </q-item-section>
+              </q-item>
+            </q-list>
+          </q-scroll-area>
 
-    <q-drawer
-      v-model="drawer"
-      show-if-above
-
-      :mini="!drawer || miniState"
-      @click.capture="drawerClick"
-
-      :width="200"
-      :breakpoint="500"
-      bordered
-      :class="$q.dark.isActive ? 'bg-grey-9' : 'bg-grey-3'"
-    >
-      <template v-slot:mini>
-        <q-scroll-area class="fit mini-slot cursor-pointer">
-          <div class="q-py-lg">
-            <div class="column items-start">
-              <q-icon name="inbox" color="blue" class="mini-icon" @click="goToPosts" />
-            </div>
-          </div>
-        </q-scroll-area>
-      </template>
-
-      <q-scroll-area class="fit">
-        <q-list padding>
-          <q-item clickable v-ripple @click="goToPosts">
-            <q-item-section>
-              Articles
-            </q-item-section>
-          </q-item>
-        </q-list>
-      </q-scroll-area>
-
-      <!--
+          <!--
         in this case, we use a button (can be anything)
         so that user can switch back
         to mini-mode
       -->
-      <div class="q-mini-drawer-hide absolute" style="top: 15px; right: -17px">
-        <q-btn
-          dense
-          round
-          unelevated
-          color="accent"
-          icon="chevron_left"
-          @click="miniState = true"
-        />
-      </div>
-    </q-drawer>
+          <div
+            class="q-mini-drawer-hide absolute"
+            style="top: 15px; right: -17px"
+          >
+            <q-btn
+              dense
+              round
+              unelevated
+              color="accent"
+              icon="chevron_left"
+              @click="miniState = true"
+            />
+          </div>
+        </q-drawer>
+      </q-toolbar>
+    </q-header>
 
-<!-- 
-    
+    <!-- Votre contenu ici ( toujours faire apparaitre sur le code!!!! important  ) -->
     <q-page-container>
       <router-view />
     </q-page-container>
-  </q-layout> -->
-
 
     <!-- bloc footer  -->
     <q-footer elevated>
@@ -264,7 +257,6 @@ export default defineComponent({
       age,
       submitLoginForm,
       submitInscriptionForm,
-      slide: ref("first"),
     };
   },
 });
