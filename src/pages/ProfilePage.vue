@@ -1,6 +1,4 @@
 <template>
-  <q-layout>
-  <q-page-container>
   <q-page style="background-color:rgb(208, 208, 216);">
   <div class="q-pa-md" style="max-width: 600px; margin: auto; ">
     <h2 class="text-h6">Bienvenue sur votre profil</h2>
@@ -22,8 +20,6 @@
     </q-form>
   </div>
 </q-page>
-</q-page-container>
-</q-layout>
 </template>
 
 <script>
@@ -31,6 +27,7 @@
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 export default {
+
   props: {
     posts: {
       type: Array,

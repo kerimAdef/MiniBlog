@@ -1,19 +1,60 @@
-<!--
-Forked from:
-https://quasar.dev/vue-components/chat#example--name
--->
-<div id="q-app" style="min-height: 100vh;">
-    <div class="q-pa-md row justify-center">
-        <div style="width: 100%; max-width: 400px">
-          <q-chat-message
-            name="me"
-            :text="['hey, how are you?']"
-            sent
-          ></q-chat-message>
-          <q-chat-message
-            name="Jane"
-            :text="['doing fine, how r you?']"
-          ></q-chat-message>
-        </div>
-      </div>
+<template>
+  <div class="q-pa-md row justify-center">
+    <div style="width: 100%; max-width: 400px">
+      <q-chat-message
+        name="me"
+        avatar="https://cdn.quasar.dev/img/avatar3.jpg"
+        :text="['hey, how are you?']"
+        stamp="7 minutes ago"
+        sent
+        bg-color="amber-7"
+      />
+      <q-chat-message
+        name="Jane"
+        avatar="https://cdn.quasar.dev/img/avatar5.jpg"
+        :text="[
+          'doing fine, how r you?',
+          'I just feel like typing a really, really, REALLY long message to annoy you...'
+        ]"
+        size="6"
+        stamp="4 minutes ago"
+        text-color="white"
+        bg-color="primary"
+      />
+      <q-chat-message
+        name="Jane"
+        avatar="https://cdn.quasar.dev/img/avatar5.jpg"
+        :text="['Did it work?']"
+        stamp="1 minutes ago"
+        size="8"
+        text-color="white"
+        bg-color="primary"
+      />
+      <q-chat-message
+        name="Jane"
+        avatar="https://cdn.quasar.dev/img/avatar5.jpg"
+        :text="['Did it work?']"
+        stamp="1 minutes ago"
+        size="8"
+        text-color="white"
+        bg-color="primary"
+      />
+      <q-chat-message
+        name="me"
+        avatar="https://cdn.quasar.dev/img/avatar3.jpg"
+        :text="['hey, how are you?']"
+        stamp="7 minutes ago"
+        sent
+        bg-color="amber-7"
+      />
+      <q-chat-message
+        name="me"
+        avatar="https://cdn.quasar.dev/img/avatar3.jpg"
+        :text="['hey, how are you?']"
+        stamp="7 minutes ago"
+        sent
+        bg-color="amber-7"
+      />
     </div>
+  </div>
+</template>

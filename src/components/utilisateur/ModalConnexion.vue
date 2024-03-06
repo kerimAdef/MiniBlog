@@ -1,81 +1,39 @@
 <template>
-  <q-card>
+  <q-card style="width: 700px; max-width: 80vw;">
     <q-card-section>
-      <div class="text-h6" style="color: antiquewhite">Connexion</div>
+      <div class="text-h6" style="color: black">Connexion</div>
     </q-card-section>
-
+    <q-form @submit="submitLoginForm">
     <q-card-section style="background-color: aliceblue">
-      <!-- Votre formulaire d'inscription -->
-      <q-input filled label="Adresse e-mail" v-model="email" />
-        <q-input
-          filled
-          type="password"
-          label="Mot de passe"
-          v-model="password"
-        />
+      <q-input filled label="Adresse e-mail" v-model="email"
+      lazy-rules :rules="[ val => val && val.length > 0 || 'Please type something']" />
+      <q-input filled type="password" label="Mot de passe" v-model="password" />
     </q-card-section>
 
     <q-card-actions>
-      <q-btn color="primary" label="S'inscrire" @click="submitInscriptionForm" />
-      <q-btn color="secondary" label="Fermer" @click="closeInscriptionModal" />
+      <q-btn color="primary" label="Se connecter" type="submit"/>
+      <q-btn color="secondary" label="Fermer" v-close-popup />
     </q-card-actions>
+  </q-form>
   </q-card>
 </template>
+
 <script>
-export default {
-  components :{
-    ModalInscription,
-  },
+import { defineComponent, ref } from "vue";
+
+export default defineComponent({
   data() {
     return {
-      session: true,
-      ModalInscription:false,
+      email: ref(""),
+      password: ref(""),
     };
   },
-  setup () {
-    const slide = ref("first");
-    const miniState = ref(false);
-    const loginModalVisible = ref(false);
-    const inscriptionModalVisible = ref(false);
-
-
-    const openLoginModal = () => {
-      loginModalVisible.value = true;
-    };
-
-    const closeLoginModal = () => {
-      loginModalVisible.value = false;
-    };
-
-    const openInscriptionModal = () => {
-      inscriptionModalVisible.value = true;
-    };
-
-    const closeInscriptionModal = () => {
-      inscriptionModalVisible.value = false;
-    };
-
-    return {
-      slide,
-      openLoginModal,
-      closeLoginModal,
-      openInscriptionModal,
-      closeInscriptionModal,
-      loginModalVisible,
-      inscriptionModalVisible,
-      drawer: ref(false),
-      miniState,
-
-      drawerClick (e) {
-
-        if (miniState.value) {
-          miniState.value = false
-          e.stopPropagation()
-        }
-      }
-    }
+  methods: {
+    submitLoginForm() {
+      console.log("Formulaire de connexion soumis !");
+      this.$router.push({ name: "homePage" });
+      this.closeLoginModal();
+    },
   },
-
-};
+});
 </script>
-
