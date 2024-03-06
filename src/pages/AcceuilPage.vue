@@ -32,16 +32,16 @@
       </q-page>
   
     <!-- Bouton pour retourner à l'accueil -->
-    <q-page-sticky position="bottom-right" class="q-mb-md q-mr-md">
+    <!-- <q-page-sticky position="bottom-right" class="q-mb-md q-mr-md">
       <q-btn
         push
         color="secondary"
         glossy
         label="Retour"
-        @click="goToHomePage"
+        
       />
     </q-page-sticky>
- 
+  -->
 </template>
 
 <script>
@@ -111,8 +111,8 @@ export default defineComponent({
     ];
 
     return {
-      goToHomePage,
-      goToProfilePage,
+      // goToHomePage,
+      // goToProfilePage,
       openPost,
       posts,
     };

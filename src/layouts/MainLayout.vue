@@ -56,7 +56,7 @@
                     color="secondary"
                     glossy
                     label="Voir articles"
-                    :to="{ name: 'Accueil' }"
+                   :to="{ name: 'Acceuil' }"
                     class="q-mb-lg"
                   />
                 </div>
